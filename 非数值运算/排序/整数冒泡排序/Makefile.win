@@ -1,0 +1,29 @@
+# Project: ÕûÊýÃ°ÅÝÅÅÐò
+# Makefile created by Dev-C++ 5.4.0
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = IntBubbleSort.o $(RES)
+LINKOBJ  = IntBubbleSort.o $(RES)
+LIBS     = -L"E:/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc
+INCS     = -I"E:/Dev-Cpp/MinGW32/include"
+CXXINCS  = -I"E:/Dev-Cpp/MinGW32/include"
+BIN      = ÕûÊýÃ°ÅÝÅÅÐò.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+IntBubbleSort.o: IntBubbleSort.c
+	$(CC) -c IntBubbleSort.c -o IntBubbleSort.o $(CFLAGS)
