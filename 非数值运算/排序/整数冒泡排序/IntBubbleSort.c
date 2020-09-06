@@ -1,34 +1,16 @@
 #include "stdio.h"
 
-void ibub(int *p ,int n)
+void RubbleSort(int array[], size_t size)
 {
-	int m,k,j,i,d;
-	k=0;
-	m=n-1;
-	while(k<m)
-	{
-		j=m-1;
-		m=0;
-		for(i=k;i<=j;i++)
-			if(p[i]>p[i+1])
+	size_t i, j;
+	for (i=0; i<size-1; i++)
+		for (j=0; j<size-1-i; j++)
+			if (array[j] > array[j+1])
 			{
-				d=p[i];
-				p[i]=p[i+1];
-				p[i+1]=d;
-				m=i;
+				array[j]   = array[j] ^ array[j+1];
+				array[j+1] = array[j] ^ array[j+1];
+				array[j]   = array[j] ^ array[j+1];
 			}
-		j=k+1;
-		k=0;
-		for(i=m;i>=j;i--)
-			if(p[i-1]>p[i])
-			{
-				d=p[i];
-				p[i]=p[i-1];
-				p[i-1]=d;
-				k=i;
-			}
-		
-	}
 }
 
 
@@ -41,11 +23,9 @@ void main()
 	for(count=0;count<10;count++)
 		printf("%d\t",a[count]);
 		
-	ibub(a,10);
+	RubbleSort(a,10);
 	
 	printf("\nÅÅÐòÖ®ºó£º\n");
 	for(count=0;count<10;count++)
 	 	printf("%d\t",a[count]);
-	 	
-	while(1); 
 } 
